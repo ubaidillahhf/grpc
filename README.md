@@ -403,6 +403,17 @@ Demonstrates calling all 4 RPC types with clear examples
 
 ## 🐛 Troubleshooting
 
+**Error: `undefined: grpc.ServerStreamingClient` or similar streaming errors**
+- This is a version compatibility issue between the `protoc-gen-go-grpc` plugin and gRPC library
+- **Root Cause:** Plugin v1.6.1+ generates code using new streaming types not available in gRPC v1.63.0
+- **Solution:**
+  ```bash
+  go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.3.0
+  make clean            # Remove old generated files
+  make proto            # Regenerate with compatible version
+  ```
+- The Makefile now pins `protoc-gen-go-grpc` to v1.3.0 for compatibility
+
 **Error: `protoc: command not found`**
 - Install Protocol Buffers compiler (see Prerequisites)
 
