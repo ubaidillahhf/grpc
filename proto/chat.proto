@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/ubaidillahhf/grpc/proto";
+
+// Chat service demonstrating 4 gRPC communication patterns
+service ChatService {
+  // 1. Unary RPC: Simple request-response (like asking a question and getting one answer)
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+  
+  // 2. Server Streaming RPC: One request, multiple responses (like subscribing to news updates)
+  rpc GetServerStream (StreamRequest) returns (stream StreamResponse);
+  
+  // 3. Client Streaming RPC: Multiple requests, one response (like uploading file chunks)
+  rpc GetClientStream (stream StreamRequest) returns (StreamResponse);
+  
+  // 4. Bidirectional Streaming RPC: Multiple requests and responses (like a live chat conversation)
+  rpc GetBidirectionalStream (stream StreamRequest) returns (stream StreamResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message StreamRequest {
+  string message = 1;
+}
+
+message StreamResponse {
+  string message = 1;
+}
