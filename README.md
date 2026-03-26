@@ -724,7 +724,7 @@ WebSocket is great for:
 - Collaborative editing
 ```
 
-**🎯 For Your Chat App:**
+**🎯 Decision Guide:**
 
 **Use MQTT if:**
 - Building for IoT/embedded devices
@@ -804,4 +804,10 @@ Built with:
 - [Protocol Buffers](https://protobuf.dev/)
 - [Go](https://golang.org/)
 
-Happy coding! 🎉
+---
+
+## 📚 Resources
+
+- [gRPC Official Documentation](https://grpc.io/docs/)
+- [Protocol Buffers Guide](https://protobuf.dev/)
+- [gRPC Go Quick Start](https://grpc.io/docs/languages/go/quickstart/)
